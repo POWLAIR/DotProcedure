@@ -235,22 +235,22 @@ Code erreur
 #### Solution Temporaire
   Commenter les lignes composer Horizon
 
-	Fichier docker-compose.yml :
-	```yml
-		  # horizon:
-		  #   build:
-		  #     context: ./
-		  #     dockerfile: Dockerfile
-		  #   command: [ "wait", "backend:80", "-t", "0", "--", "php", "artisan", "horizon" ]
-		  #   depends_on:
-		  #     - backend
-		  #   restart: unless-stopped
-		  #   volumes:
-		  #     - "./:/web/html:cached"
-		  #     - "~/.composer/cache/:/root/.composer/cache:cached"
-		  #   networks:
-		  #     - sauvlife
-	```
+Fichier docker-compose.yml :
+```yml
+	  # horizon:
+	  #   build:
+	  #     context: ./
+	  #     dockerfile: Dockerfile
+	  #   command: [ "wait", "backend:80", "-t", "0", "--", "php", "artisan", "horizon" ]
+	  #   depends_on:
+	  #     - backend
+	  #   restart: unless-stopped
+	  #   volumes:
+	  #     - "./:/web/html:cached"
+	  #     - "~/.composer/cache/:/root/.composer/cache:cached"
+	  #   networks:
+	  #     - sauvlife
+```
 		  
 		  
 #### Solution :
@@ -267,7 +267,7 @@ Code erreur
 	
 ## Lancement docker
 Lancement de docker depuis invite de commande administrateur pour palier au risque de timeOUT
-	```bash docker compose up ```
+```bash docker compose up ```
 			
 ### Problemes install Failed
 Alterner 
@@ -295,29 +295,31 @@ afin d'installer les dépendances peu à peu
 	
 ### Probleme base BBD test non créé
 #### Verification .env & .env.test 
-	```bash
-	  DB_CONNECTION=mysql
-	  DB_HOST=mysql
-	  DB_PORT=3306
-	  DB_DATABASE=sauvlife_test
-	  DB_DATABASE_legacy=sauvlife
-	  DB_USERNAME=root
-	  DB_PASSWORD="root"
-	  DB_DATABASE_LEGACY=sauvlife
-	```
-	```bash
-	  DB_CONNECTION=mysql
-	  DB_HOST=mysql
-	  DB_PORT=3306
-	  DB_DATABASE=sauvlife
-	  DB_DATABASE_legacy=sauvlife
-	  DB_USERNAME=root
-	  DB_PASSWORD="root"
-	  DB_DATABASE_LEGACY=sauvlife
-	```
+```bash
+  DB_CONNECTION=mysql
+  DB_HOST=mysql
+  DB_PORT=3306
+  DB_DATABASE=sauvlife_test
+  DB_DATABASE_legacy=sauvlife
+  DB_USERNAME=root
+  DB_PASSWORD="root"
+  DB_DATABASE_LEGACY=sauvlife
+```
+```bash
+  DB_CONNECTION=mysql
+  DB_HOST=mysql
+  DB_PORT=3306
+  DB_DATABASE=sauvlife
+  DB_DATABASE_legacy=sauvlife
+  DB_USERNAME=root
+  DB_PASSWORD="root"
+  DB_DATABASE_LEGACY=sauvlife
+```
 	
 #### Ajout ligne dans docker-compose.yml 
 
-```bash php artisan migrate --force --env=test; ```
+```bash
+php artisan migrate --force --env=test;
+```
 
 
