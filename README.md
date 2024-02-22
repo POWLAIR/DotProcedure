@@ -8,14 +8,12 @@
 
 # Installation 
 - docker (https://www.docker.com/get-started/)
-	- test : ```bash docker -v ```
+	- test : ```docker -v```
 	
 - Postman (https://www.postman.com/downloads/)
-	- adresse environnement : **TODO**
 
 - MySQL Workbench (https://dev.mysql.com/downloads/workbench/)
 	
-
 
 
 ## Clone project :
@@ -23,7 +21,7 @@
 git clone --branch <tag> <repo>
 git clone --branch env/preprod  https://git.dotsafe.fr/sauv-life/backend-sauvlife.git
 ``` 
- 
+
 - docs : https://www.atlassian.com/fr/git/tutorials/setting-up-a-repository/git-clone
 
 
@@ -223,7 +221,9 @@ TWILIO_API_SECRET=MiDoYxhHGUpP79QLI014d3L4MgTKljyc
 ## Lancement 1er build docker
 
 Lancement du premier build depuis invite de commande administrateur pour palier au risque de timeOUT
-```bash docker compose build ```
+```bash
+docker compose build
+```
 	
 	
 ### Problemes docker Horizon
@@ -237,52 +237,58 @@ Code erreur
 
 Fichier docker-compose.yml :
 ```yml
-	  # horizon:
-	  #   build:
-	  #     context: ./
-	  #     dockerfile: Dockerfile
-	  #   command: [ "wait", "backend:80", "-t", "0", "--", "php", "artisan", "horizon" ]
-	  #   depends_on:
-	  #     - backend
-	  #   restart: unless-stopped
-	  #   volumes:
-	  #     - "./:/web/html:cached"
-	  #     - "~/.composer/cache/:/root/.composer/cache:cached"
-	  #   networks:
-	  #     - sauvlife
+  # horizon:
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile
+  #   command: [ "wait", "backend:80", "-t", "0", "--", "php", "artisan", "horizon" ]
+  #   depends_on:
+  #     - backend
+  #   restart: unless-stopped
+  #   volumes:
+  #     - "./:/web/html:cached"
+  #     - "~/.composer/cache/:/root/.composer/cache:cached"
+  #   networks:
+  #     - sauvlife
 ```
 		  
-		  
-#### Solution :
 
-**TODO**
-	
-	
+
 ### Problemes docker cache
 => CANCELED [backend internal] load build context  
 
-```bash docker system prune -a ```
+```bash
+docker system prune -a
+```
 
 
-	
+
 ## Lancement docker
 Lancement de docker depuis invite de commande administrateur pour palier au risque de timeOUT
-```bash docker compose up ```
-			
+```bash
+docker compose up
+```
+		
 ### Problemes install Failed
 Alterner 
-```bash docker compose down ```
+```bash
+docker compose down
+```
 
-```bash docker compose up ```
+```bash 
+docker compose up 
+```
 afin d'installer les dépendances peu à peu
-	
+
 ## connnection docker back
-```bash docker compose exec backend bash ```
-	
+```bash
+docker compose exec backend bash
+```
+
 ## connnection docker mysql	
 ```bash 
-  docker compose exec mysql bash 
-  mysql --host=mysql --user=root --password=root
+docker compose exec mysql bash 
+mysql --host=mysql --user=root --password=root
 ```
 	
 ## Lancement test
