@@ -280,9 +280,12 @@ docker compose up
 ```
 afin d'installer les dépendances peu à peu
 
-## connnection docker back
+## ⚠️ ATTENTION ⚠️
+
+Cette action va exécuter les seeders dans la base de données avec la commande suivante :
+
 ```bash
-docker compose exec backend bash
+php artisan db:seed
 ```
 
 ## connnection docker mysql	
